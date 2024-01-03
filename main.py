@@ -16,8 +16,8 @@ controller_ips = []
 
 
 # Hardcoded admin credentials for simplicity
-admin_username = os.environ['auser']
-admin_password = os.environ['apap']
+admin_username = 'rysio12'
+admin_password = 'Polska007'
 
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
