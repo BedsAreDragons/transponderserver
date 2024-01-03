@@ -1,0 +1,13 @@
+# Requirements.txt
+
+# Terminal text color
+colorama==0.4.6
+
+# Web framework
+Flask==3.0.0
+
+# JSON conversion
+json2json==0.1.0
+
+# HTTP requests
+requests==2.31.0
