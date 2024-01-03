@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controller Login</title>
+</head>
+<body>
+    <h1>Controller Login</h1>
+    <form action="/controller/login" method="post">
+        <label for="callsign">Controller Callsign:</label>
+        <input type="text" id="callsign" name="callsign" oninput="this.value = this.value.toUpperCase()" required><br>
+
+        <label for="frequency">Frequency:</label>
+        <input type="text" id="frequency" name="frequency" required><br>
+
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ callsign }} - Pilot Page</title>
+</head>
+<body>
+    <h1>Welcome, {{ callsign }}!</h1>
+
+    <h2>Your Flight Information:</h2>
+    <p>Departure: {{ pilot.departure }}</p>
+    <p>Arrival: {{ pilot.arrival }}</p>
+    <p>Aircraft Type: {{ pilot.aircraft }}</p>
+    <p>Cruise: {{ pilot.cruise }}</p>
+    <p>Route: {{ pilot.route }}</p>
+    <h2>Update Your Information:</h2>
+      <!-- Inside your pilot_page.html -->
+      <form action="{{ url_for('pilot_page', callsign=callsign) }}" method="post">
+          <label for="frequency">Frequency:</label>
+          <input type="text" id="frequency" name="frequency" value="{{ pilot.frequency or '122.800' }}" required><br>
+
+          <label for="squawk">Squawk:</label>
+          <input type="text" id="squawk" name="squawk" value="{{ pilot.squawk }}"><br>
+
+          <button type="submit">Update</button>
+      </form>
+
+  <script>
+      // Function to set a cookie
+      function setCookie(name, value, days) {
+          var expires = "";
+          if (days) {
+              var date = new Date();
+              date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+              expires = "; expires=" + date.toUTCString();
+          }
+          document.cookie = name + "=" + value + expires + "; path=/";
+      }
+
+      // Function to get a cookie value
+      function getCookie(name) {
+          var nameEQ = name + "=";
+          var ca = document.cookie.split(';');
+          for (var i = 0; i < ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+              if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+          }
+          return null;
+      }
+
+      // Function to handle squawk form submission
+      function handleSquawkForm() {
+          var squawkInput = document.getElementById('squawk');
+          var squawk = squawkInput.value;
+
+          // Set the squawk cookie
+          setCookie('squawk', squawk, 7); // You can adjust the expiry as needed
+      }
+
+      // Function to load saved squawk value on page load
+      function loadSavedSquawk() {
+          var squawk = getCookie('squawk');
+          if (squawk) {
+              var squawkInput = document.getElementById('squawk');
+              squawkInput.value = squawk;
+          }
+      }
+
+      // Load saved squawk on page load
+      window.onload = loadSavedSquawk;
+  </script>
+
+</body>
+</html>

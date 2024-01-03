@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilot Login</title>
+</head>
+<body>
+    <h1>Pilot Login</h1>
+    <form action="/pilot/login" method="post">
+        <label for="callsign">Pilot Callsign:</label>
+        <input type="text" id="callsign" name="callsign" oninput="this.value = this.value.toUpperCase()" required><br>
+
+      
+
+        <label for="departure">Departure:</label>
+        <input type="text" id="departure" name="departure" required><br>
+
+        <label for="arrival">Arrival:</label>
+        <input type="text" id="arrival" name="arrival" required><br>
+
+        <label for="aircraft">Aircraft:</label>
+        <input type="text" id="aircraft" name="aircraft" required><br>
+
+        <label for="cruise">Cruise:</label>
+        <input type="text" id="cruise" name="cruise" required><br>
+
+        <h3>Optional</h3>
+      
+        <label for="route">Route:</label>
+        <input type="text" id="route" name="route"><br>
+      
+
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>

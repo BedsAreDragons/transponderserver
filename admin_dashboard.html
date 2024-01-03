@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <h1>Welcome, Admin!</h1>
+    <!-- Add admin dashboard content here -->
+    <form action="{{ url_for('controller_page', callsign=callsign) }}" method="post">
+      <label for="remove_callsign">Pilot Callsign to Remove:</label>
+      <input type="text" id="remove_callsign" name="remove_callsign" required>
+      <button type="submit" name="remove">Remove Pilot</button>
+    </form>
+
+      <h2>Connected Pilots:</h2>
+      <ul>
+          {% for pilot in pilots %}
+              
+                  <strong>Callsign:</strong> <span >{{ pilot }}</span> | 
+
+              
+          {% endfor %}
+      </ul>
+</body>
+</html>

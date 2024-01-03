@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ callsign }} - Controller Page</title>
+    <style>
+        /* Add CSS styles for different colors */
+        .pilot-on-frequency {
+            color: blue;
+        }
+
+        .pilot-on-other-frequency {
+            color: green;
+        }
+
+        .squawk-alert {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, {{ callsign }}!</h1>
+  
+
+    <h2>Connected Pilots:</h2>
+    <ul>
+        {% for pilot in pilots %}
+            <li class="{% if '7700' in pilots[pilot].squawk or '7600' in pilots[pilot].squawk or '7500' in pilots[pilot].squawk %}squawk-alert{% else %}{% if pilots[pilot].frequency == callsign %}pilot-on-frequency{% else %}pilot-on-other-frequency{% endif %}{% endif %}">
+                <strong>Callsign:</strong> <span class="{% if '7700' in pilots[pilot].squawk or '7600' in pilots[pilot].squawk or '7500' in pilots[pilot].squawk %}squawk-alert{% else %}{% if pilots[pilot].frequency == callsign %}pilot-on-frequency{% else %}pilot-on-other-frequency{% endif %}{% endif %}">{{ pilot }}</span> | 
+                <strong>Frequency:</strong> {{ pilots[pilot].frequency }} | 
+                <strong>Squawk:</strong> <span class="{% if '7700' in pilots[pilot].squawk or '7600' in pilots[pilot].squawk or '7500' in pilots[pilot].squawk %}squawk-alert{% endif %}">{{ pilots[pilot].squawk }}</span>
+                
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Add this section to display flight plans -->
+    <h2>Flight Plans:</h2>
+    <ul>
+        {% for pilot in pilots %}
+            <li>
+                <strong>Callsign:</strong> {{ pilot }} | 
+                <strong>Departure:</strong> {{ pilots[pilot].departure }} | 
+                <strong>Arrival:</strong> {{ pilots[pilot].arrival }} | 
+                <strong>Aircraft Type:</strong> {{ pilots[pilot].aircraft }} | 
+                <strong>Cruise:</strong> {{ pilots[pilot].cruise }} | 
+                <strong>Route:</strong> {{ pilots[pilot].route }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Inside controller_page.html -->
+    
+    </form>
+  
+    <script>
+        // Reload the page every 10 seconds
+        setTimeout(function () {
+            location.reload();
+        }, 17000);
+    </script>
+</body>
+</html>
