@@ -32,6 +32,7 @@
                 <strong>Squawk:</strong> <span class="{% if '7700' in pilots[pilot].squawk or '7600' in pilots[pilot].squawk or '7500' in pilots[pilot].squawk %}squawk-alert{% endif %}">{{ pilots[pilot].squawk }}</span>
                 
             </li>
+        <br>
         {% endfor %}
     </ul>
 
@@ -47,9 +48,8 @@
                 <strong>Cruise:</strong> {{ pilots[pilot].cruise }} | 
                 <strong>Route:</strong> {{ pilots[pilot].route }}
             </li>
+            <br>
         {% endfor %}
-        <br>
-        <br>
     </ul>
 
     <!-- Inside controller_page.html -->
