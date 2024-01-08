@@ -3,13 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pilot Login</title>
+    <title>Pilot</title>
+    <link rel="stylesheet" href="ATC.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <h1>Pilot Login</h1>
     <form action="/pilot/login" method="post">
-        <label for="callsign">Pilot Callsign:</label>
-        <input type="text" id="callsign" name="callsign" oninput="this.value = this.value.toUpperCase()" required><br>
+        <h1>Pilot</h1>
+        <div class="input-box">
+        <input type="text" placeholder="Callsign" id="callsign" name="callsign" oninput="this.value = this.value.toUpperCase()" required><br>
+        </div>
+        <div class="input-box">
+        <input type="text" placeholder="Departure" id="departure" name="departure" required><br>
+        </div>
+        <div class="input-box">
+        <input type="text" placeholder="Arrival" id="arrival" name="arrival" required><br>
+        </div>
+        <div class="input-box">
+        <input type="text" placeholder="Aircraft" id="aircraft" name="aircraft" required><br>
+        </div>
+        <div class="input-box">
+        <input type="text" placeholder="FL" id="cruise" name="cruise" required><br>
+        </div>
+        <h2>Optional</h2>
+        <div class="input-box">
+        <input type="text" placeholder="Route" id="route" name="route"><br>
+        </div>
 
       
 
@@ -33,5 +53,6 @@
 
         <button type="submit">Login</button>
     </form>
+</div>
 </body>
 </html>
