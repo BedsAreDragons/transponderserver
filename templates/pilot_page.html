@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ callsign }} - Pilot Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='ATC.css') }}">
+    <title>{{ callsign }} - Pilot Dashboard</title>
 </head>
 <body>
     <div class="wrapper">
-    <h1>Welcome, {{ callsign }}!</h1>
+    <h1>Welcome, {{ callsign }}</h1>
 
     <h2>Your Flight Information:</h2>
     <p>Aircraft Type: {{ pilot.aircraft }}</p>
