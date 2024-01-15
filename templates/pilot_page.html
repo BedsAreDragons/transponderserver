@@ -6,6 +6,7 @@
     <title>{{ callsign }} - Pilot Page</title>
 </head>
 <body>
+    <div class="wrapper">
     <h1>Welcome, {{ callsign }}!</h1>
 
     <h2>Your Flight Information:</h2>
@@ -26,7 +27,7 @@
 
           <button type="submit">Update</button>
       </form>
-
+    </div>
   <script>
       // Function to set a cookie
       function setCookie(name, value, days) {
@@ -72,6 +73,6 @@
       // Load saved squawk on page load
       window.onload = loadSavedSquawk;
   </script>
-
+    
 </body>
 </html>
