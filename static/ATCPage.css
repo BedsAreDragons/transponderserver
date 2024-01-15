@@ -22,7 +22,6 @@ body{
     color: #fff;
     border-radius: 12px;
     padding: 30px 40px;
-    align-items: center;
 }
 .wrapper h1{
     font-size: 36px;
@@ -47,7 +46,6 @@ body{
     color: #333;
     font-weight: 600;
     padding: 22.5 45px 20px 20px;
-    align-items: left;
 }
 .wrapper .btn1{
     width: 10%;
