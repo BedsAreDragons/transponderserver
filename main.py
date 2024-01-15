@@ -77,7 +77,7 @@ def pilot_login():
           
 
         if callsign:
-            pilots[callsign] = {'arrival': arrival, 'departure': departure, 'frequency': '', 'squawk': '', 'aircraft': aircraft, 'route': route, 'cruise': cruise}
+            pilots[callsign] = {'aircraft': aircraft, 'flightrules': flightrules, 'arrival': arrival, 'departure': departure, 'frequency': '', 'squawk': '', 'initial': initial, 'cruise': cruise}
             print(f"{Fore.GREEN}Pilot {callsign} logged in{Fore.WHITE}")
             return redirect(url_for('pilot_page', callsign=callsign))
           
