@@ -104,3 +104,13 @@ body{
 .register-link p a:hover{
     text-decoration: underline;
 }
+.wrapper1{
+    width: 420px;
+    hieght: 90%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    border-radius: 12px;
+    padding: 30px 40px;
+}
