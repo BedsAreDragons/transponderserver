@@ -22,10 +22,10 @@
 </head>
 <body>
     <div class="wrapper">
-    <h1>Welcome, {{ callsign }}!</h1><br>
+    <h1>Welcome, {{ callsign }}!</h1>
   
 
-    <h2>Connected Pilots:</h2><br>
+    <h2>Connected Pilots:</h2>
     <ul>
         {% for pilot in pilots %}
             <li class="{% if '7700' in pilots[pilot].squawk or '7600' in pilots[pilot].squawk or '7500' in pilots[pilot].squawk %}squawk-alert{% else %}{% if pilots[pilot].frequency == callsign %}pilot-on-frequency{% else %}pilot-on-other-frequency{% endif %}{% endif %}">
@@ -39,7 +39,7 @@
     </ul>
 
     <!-- Add this section to display flight plans -->
-    <h2>Flight Plans:</h2><br>
+    <h2>Flight Plans:</h2>
     <ul>
         {% for pilot in pilots %}
             <li>
