@@ -74,7 +74,7 @@ body{
 }
 .wrapper1{
     width: 420px;
-    height: 95%;
+    height: 90%;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(10px);
