@@ -7,7 +7,7 @@
 body{
     display:  flex;
     justify-content: left;
-    align-items: left;
+    align-items: center;
     min-height: 100vh;
     background: url(bg.png) no-repeat;
     background-size: cover;
