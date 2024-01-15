@@ -17,7 +17,9 @@
     <p>Arrival: {{ pilot.arrival }}</p>
     <p>IFL: {{ pilot.initial }}</p>
     <p>FL: {{ pilot.cruise }}</p>
+    <br>
     <h2>Update Your Information:</h2>
+    <br>
       <!-- Inside your pilot_page.html -->
       <form action="{{ url_for('pilot_page', callsign=callsign) }}" method="post">
           <label for="frequency">Frequency:</label>
