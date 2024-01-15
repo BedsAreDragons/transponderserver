@@ -67,11 +67,14 @@ def index():
 def pilot_login():
     if request.method == 'POST':
         callsign = request.form.get('callsign', type=str)
+        aircraft = request.form.get('aircraft', type=str)
+        ifr/vfr = request.form.get('ifr/vfr', type=str)
         arrival = request.form.get('arrival', type=str)
         departure = request.form.get('departure', type=str)
-        aircraft = request.form.get('aircraft', type=str)
         route = request.form.get('route', type=str)
+        initial = request.form.get('initial', type=str)
         cruise = request.form.get('cruise', type=str)
+          
 
         if callsign:
             pilots[callsign] = {'arrival': arrival, 'departure': departure, 'frequency': '', 'squawk': '', 'aircraft': aircraft, 'route': route, 'cruise': cruise}
