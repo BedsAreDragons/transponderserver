@@ -68,7 +68,7 @@ def pilot_login():
     if request.method == 'POST':
         callsign = request.form.get('callsign', type=str)
         aircraft = request.form.get('aircraft', type=str)
-        ifr/vfr = request.form.get('ifr/vfr', type=str)
+        flightrules = request.form.get('flightrules', type=str)
         arrival = request.form.get('arrival', type=str)
         departure = request.form.get('departure', type=str)
         route = request.form.get('route', type=str)
