@@ -96,6 +96,14 @@ body{
     font-weight: 600;
     padding: 22.5 45px 20px 20px;
 }
+.wrapper1 h1{
+    font-size: 36px;
+    text-align: center;
+}
+.wrapper1 h2{
+    font-size: 25px;
+    text-align: center;
+}
 .wrapper1 .input-box{
     position: relative;
     width: 100%;
