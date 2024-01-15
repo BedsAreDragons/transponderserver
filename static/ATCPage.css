@@ -22,6 +22,7 @@ body{
     color: #fff;
     border-radius: 12px;
     padding: 30px 40px;
+    align-items: center;
 }
 .wrapper h1{
     font-size: 36px;
