@@ -120,8 +120,8 @@ body{
     height: 50px;
     margin: 20px 0;
 }
-.image{
+wrapper1 .image{
     width: 15%;
     image-align: center;
-    
+}
     
