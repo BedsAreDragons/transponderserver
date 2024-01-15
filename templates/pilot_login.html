@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pilot</title>
+    <title>Pilot Login</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='ATC.css') }}">
 </head>
 <body>
     <div class="wrapper1">
     <form action="/pilot/login" method="post">
-        <h1>Pilot</h1>
+        <h1>Pilot Login</h1>
         <div class="input-box">
         <input type="text" placeholder="Callsign" id="callsign" name="callsign" oninput="this.value = this.value.toUpperCase()" required><br>
         </div>
