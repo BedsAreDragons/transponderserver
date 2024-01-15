@@ -14,7 +14,7 @@ body{
     background-position: center;
 }
 .wrapper{
-    width: fit-content;
+    width: 1400px;
     height: fit-content;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
