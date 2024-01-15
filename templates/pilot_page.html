@@ -9,11 +9,12 @@
     <h1>Welcome, {{ callsign }}!</h1>
 
     <h2>Your Flight Information:</h2>
+    <p>Aircraft Type: {{ pilot.aircraft }}</p>
+    <p>IFR/VFR: {{ pilot.ifr/vfr }}</p>
     <p>Departure: {{ pilot.departure }}</p>
     <p>Arrival: {{ pilot.arrival }}</p>
-    <p>Aircraft Type: {{ pilot.aircraft }}</p>
-    <p>Cruise: {{ pilot.cruise }}</p>
-    <p>Route: {{ pilot.route }}</p>
+    <p>IFL: {{ pilot.initial }}</p>
+    <p>FL: {{ pilot.cruise }}</p>
     <h2>Update Your Information:</h2>
       <!-- Inside your pilot_page.html -->
       <form action="{{ url_for('pilot_page', callsign=callsign) }}" method="post">
