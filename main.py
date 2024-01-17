@@ -95,7 +95,7 @@ def controller_login():
         if callsign:
             controllers[request.environ['REMOTE_ADDR']] = {'callsign': callsign, 'frequency': frequency}
             controller_ips.append(request.environ['REMOTE_ADDR'])
-            return redirect(url_for('controller_page', callsign=callsign, frequency=frequency))
+            return redirect(url_for('controller_page', callsign=callsign frequency=frequency))
 
     return render_template('controller_login.html')
 
