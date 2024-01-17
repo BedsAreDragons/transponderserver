@@ -75,10 +75,11 @@ def pilot_login():
         route = request.form.get('route', type=str)
         initial = request.form.get('initial', type=str)
         cruise = request.form.get('cruise', type=str)
+        gate = request.form.get('gate', type=str)
           
 
         if callsign:
-            pilots[callsign] = {'aircraft': aircraft, 'flightrules': flightrules, 'arrival': arrival, 'departure': departure, 'frequency': '', 'squawk': '', 'initial': initial, 'cruise': cruise}
+            pilots[callsign] = {'aircraft': aircraft, 'flightrules': flightrules, 'arrival': arrival, 'departure': departure, 'frequency': '', 'squawk': '', 'initial': initial, 'cruise': cruise, 'gate': gate}
             print(f"{Fore.GREEN}Pilot {callsign} logged in{Fore.WHITE}")
             return redirect(url_for('pilot_page', callsign=callsign))
           
