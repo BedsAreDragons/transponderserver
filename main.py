@@ -136,7 +136,7 @@ def controller_page(callsign):
         if 'remove' in request.form:
             callsign_to_remove = request.form.get('remove_callsign', type=str)
             remove_pilot(callsign_to_remove)
-            return redirect(url_for('controller_page', callsign=callsign))
+            return redirect(url_for('controller_page', callsign=callsign frequency=frequency))
 
     return render_template('controller_page.html', callsign=callsign, pilots=pilots)
 
