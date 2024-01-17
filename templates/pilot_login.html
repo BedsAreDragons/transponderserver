@@ -6,6 +6,7 @@
     <title>Pilot Login</title>
     <link rel="icon" href="{{ url_for('static', filename='PF.png') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='ATC.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="wrapper1">
@@ -13,25 +14,31 @@
         <h1>Pilot Login</h1>
         <div class="input-box">
         <input type="text" placeholder="Callsign" id="callsign" name="callsign" oninput="this.value = this.value.toUpperCase()" required><br>
+        <i class='bx bx-hash' ></i>
         </div>
-        
         <div class="input-box">
         <input type="text" placeholder="Aircraft" id="aircraft" name="aircraft" required><br>
+        <i class='bx bxs-plane-alt'></i>
         </div>
         <div class="input-box">
         <input type="text" placeholder="IFR/VFR" id="flightrules" name="flightrules" required><br>
+        <i class='bx bxs-plane-alt'></i>
         </div>
         <div class="input-box">
         <input type="text" placeholder="Departure" id="departure" name="departure" required><br>
+        <i class='bx bxs-plane-take-off' ></i>
         </div>
         <div class="input-box">
         <input type="text" placeholder="Arrival" id="arrival" name="arrival" required><br>
+        <i class='bx bxs-plane-land' ></i>
         </div>
         <div class="input-box">
         <input type="number" min="000" max="470" placeholder="IFL" id="initial" name="initial" required><br>
+        <box-icon name='chevron-up'></box-icon>
         </div>
         <div class="input-box">
         <input type="number" min="000" max="470" placeholder="FL" id="cruise" name="cruise" required><br>
+        <box-icon name='chevrons-up' ></box-icon>
         </div>
         <button type="submit" class="btn" >Logon</button>
         <br>
