@@ -128,7 +128,7 @@ def pilot_page(callsign):
 
     return render_template('pilot_page.html', callsign=callsign, pilot=pilots[callsign])
 
-@app.route('/controller/<callsign>/<frequency>', methods=['GET', 'POST'])
+@app.route('/controller/<callsign>', methods=['GET', 'POST'])
 def controller_page(callsign):
     print(f"{Fore.GREEN}Controller Page {Fore.WHITE}")
     if request.method == 'POST':
