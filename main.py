@@ -113,6 +113,7 @@ def admin_dashboard():
 @app.route('/pilot/<callsign>', methods=['GET', 'POST'])
 def pilot_page(callsign):
     if request.method == 'POST':
+        gate = request.form.get('gate', type=str)
         frequency = request.form.get('frequency', type=str)
         squawk = request.form.get('squawk', type=str)
 
@@ -121,7 +122,7 @@ def pilot_page(callsign):
             return redirect(url_for('index'))
 
         if callsign in pilots:
-            handle_pilot_update(callsign, frequency, squawk)
+            handle_pilot_update(callsign, gate, frequency, squawk)
 
     return render_template('pilot_page.html', callsign=callsign, pilot=pilots[callsign])
 
