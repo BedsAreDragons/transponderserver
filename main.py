@@ -50,7 +50,8 @@ def update_controllers():
             if ip in controllers:
                 controllers[ip].send(jsonify(pilots).json.encode())
 
-def handle_pilot_update(callsign, frequency, squawk):
+def handle_pilot_update(callsign, gate, frequency, squawk):
+    pilots[callsign]['gate'] = gate
     pilots[callsign]['frequency'] = frequency
     pilots[callsign]['squawk'] = squawk
 
