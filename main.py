@@ -95,7 +95,7 @@ def controller_login():
         if callsign:
             controllers[request.environ['REMOTE_ADDR']] = {'callsign': callsign, 'frequency': frequency}
             controller_ips.append(request.environ['REMOTE_ADDR'])
-            return redirect(url_for('controller_page', callsign=callsign frequency=frequency))
+            return redirect(url_for('controller_page', callsign=callsign))
 
     return render_template('controller_login.html')
 
@@ -136,7 +136,7 @@ def controller_page(callsign):
         if 'remove' in request.form:
             callsign_to_remove = request.form.get('remove_callsign', type=str)
             remove_pilot(callsign_to_remove)
-            return redirect(url_for('controller_page', callsign=callsign frequency=frequency))
+            return redirect(url_for('controller_page', callsign=callsign))
 
     return render_template('controller_page.html', callsign=callsign, pilots=pilots)
 
