@@ -23,59 +23,87 @@
 </head>
 <body>
     <div class="wrapper">
-    <h1>Welcome, {{ callsign }}</h1>
-    <br>
-  
-    <h2>Connected Pilots:</h2>
-    <br>
-    <ul>
-        {% for pilot in pilots %}
-            <li class="{% if '7700' in pilots[pilot].squawk or '7600' in pilots[pilot].squawk or '7500' in pilots[pilot].squawk %}squawk-alert{% else %}{% if pilots[pilot].frequency == callsign %}pilot-on-frequency{% else %}pilot-on-other-frequency{% endif %}{% endif %}">
-                <strong>Callsign:</strong> <span class="{% if '7700' in pilots[pilot].squawk or '7600' in pilots[pilot].squawk or '7500' in pilots[pilot].squawk %}squawk-alert{% else %}{% if pilots[pilot].frequency == callsign %}pilot-on-frequency{% else %}pilot-on-other-frequency{% endif %}{% endif %}">{{ pilot }}</span> | 
-                <strong>Frequency:</strong> {{ pilots[pilot].frequency }} | 
-                <strong>Squawk:</strong> <span class="{% if '7700' in pilots[pilot].squawk or '7600' in pilots[pilot].squawk or '7500' in pilots[pilot].squawk %}squawk-alert{% endif %}">{{ pilots[pilot].squawk }}</span>
-                
-            </li>
+        <h1>Welcome, {{ callsign }}</h1>
         <br>
-        {% endfor %}
+      
+        <h2>Connected Pilots:</h2>
         <br>
-    </ul>
-    
-    <!-- Add this section to display flight plans -->
-    <h2>Flight Plans:</h2>
-    <br>
-    <ul>
-        {% for pilot in pilots %}
-            <li>
-                <strong>Callsign:</strong> {{ pilot }} | 
-                <strong>Aircraft Type:</strong> {{ pilots[pilot].aircraft }} | 
-                <strong>Flight Rules:</strong> {{ pilots[pilot].flightrules }} | 
-                <strong>Departure:</strong> {{ pilots[pilot].departure }} | 
-                <strong>Arrival:</strong> {{ pilots[pilot].arrival }} | 
-                <strong>IFL:</strong> {{ pilots[pilot].initial }} |
-                <strong>FL:</strong> {{ pilots[pilot].cruise }} | 
-                <strong>Gate:</strong> {{ pilots[pilot].gate }}
-            </li>
+        <ul>
+            {% for pilot in pilots %}
+                <li class="{% if '7700' in pilots[pilot].squawk or '7600' in pilots[pilot].squawk or '7500' in pilots[pilot].squawk %}squawk-alert{% else %}{% if pilots[pilot].frequency == callsign %}pilot-on-frequency{% else %}pilot-on-other-frequency{% endif %}{% endif %}">
+                    <strong>Callsign:</strong> <span class="{% if '7700' in pilots[pilot].squawk or '7600' in pilots[pilot].squawk or '7500' in pilots[pilot].squawk %}squawk-alert{% else %}{% if pilots[pilot].frequency == callsign %}pilot-on-frequency{% else %}pilot-on-other-frequency{% endif %}{% endif %}">{{ pilot }}</span> | 
+                    <strong>Frequency:</strong> {{ pilots[pilot].frequency }} | 
+                    <strong>Squawk:</strong> <span class="{% if '7700' in pilots[pilot].squawk or '7600' in pilots[pilot].squawk or '7500' in pilots[pilot].squawk %}squawk-alert{% endif %}">{{ pilots[pilot].squawk }}</span>
+                    
+                </li>
             <br>
-        {% endfor %}
-    </ul>
-    <br>
-    <button type="button" class="btn">ATIS</button>
-    <button type="button" class="btn">Charts</button>
-    <a href="https://transponderserver.onrender.com/">
-    <button type="button" class="btn1">Exit</button>
-    </a>
+            {% endfor %}
+            <br>
+        </ul>
+        
+        <!-- Add this section to display flight plans -->
+        <h2>Flight Plans:</h2>
+        <br>
+        <ul>
+            {% for pilot in pilots %}
+                <li>
+                    <strong>Callsign:</strong> {{ pilot }} | 
+                    <strong>Aircraft Type:</strong> {{ pilots[pilot].aircraft }} | 
+                    <strong>Flight Rules:</strong> {{ pilots[pilot].flightrules }} | 
+                    <strong>Departure:</strong> {{ pilots[pilot].departure }} | 
+                    <strong>Arrival:</strong> {{ pilots[pilot].arrival }} | 
+                    <strong>IFL:</strong> {{ pilots[pilot].initial }} |
+                    <strong>FL:</strong> {{ pilots[pilot].cruise }} | 
+                    <strong>Gate:</strong> {{ pilots[pilot].gate }}
+                </li>
+                <br>
+            {% endfor %}
+        </ul>
+        <br>
+        <!-- Add the "Request SSR" button -->
+        <button type="button" class="btn" onclick="generateRandomSSR()">Request SSR</button>
+        <br><br>
+        <button type="button" class="btn">ATIS</button>
+        <button type="button" class="btn">Charts</button>
+        <a href="https://transponderserver.onrender.com/">
+            <button type="button" class="btn1">Exit</button>
+        </a>
 
-    <!-- Inside controller_page.html -->
-    
-    </form>
-  
-    <script>
-        // Reload the page every 10 seconds
-        setTimeout(function () {
-            location.reload();
-        }, 17000);
-    </script>
+        <!-- Inside controller_page.html -->
+        
+        </form>
+      
+        <script>
+            // Function to generate a random SSR code within the specified ranges
+            function generateRandomSSR() {
+                var ranges = [
+                    [300, 777],
+                    [1001, 1077],
+                    [1101, 1177],
+                    [1201, 1777],
+                    [3001, 3777],
+                    [4001, 4777],
+                    [5001, 5777],
+                    [6001, 6777]
+                ];
+
+                // Randomly select a range
+                var rangeIndex = Math.floor(Math.random() * ranges.length);
+                var min = ranges[rangeIndex][0];
+                var max = ranges[rangeIndex][1];
+
+                // Generate a random number within the selected range
+                var randomSSR = Math.floor(Math.random() * (max - min + 1)) + min;
+
+                // Alert or use the SSR as needed (e.g., send it to a server)
+                alert("Random SSR: " + randomSSR);
+            }
+
+            // Reload the page every 10 seconds
+            setTimeout(function () {
+                location.reload();
+            }, 17000);
+        </script>
     </div>
 </body>
 </html>
