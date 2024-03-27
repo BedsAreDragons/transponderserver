@@ -19,6 +19,20 @@ controller_ips = []
 admin_username = 'rysio12'
 admin_password = 'Polska007'
 
+
+
+# Add this route to handle disconnect requests made by pilots
+@app.route('/disconnect', methods=['POST'])
+def disconnect():
+    callsign = request.form.get('callsign', type=str)
+    if callsign in pilots:
+        del pilots[callsign]
+        print(f"{Fore.GREEN}Pilot {callsign} disconnected and removed from ATC side{Fore.WHITE}")
+        return jsonify({'message': 'Disconnected and removed from ATC side'})
+    else:
+        return jsonify({'message': 'Pilot not found'})
+
+
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
       error_message = None  # Initialize error_message here
