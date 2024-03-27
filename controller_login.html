@@ -3,18 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controller Login</title>
+    <title>ATC Login</title>
+    <link rel="icon" href="{{ url_for('static', filename='PF.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='ATC.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
-    <h1>Controller Login</h1>
+    <div class="wrapper">
     <form action="/controller/login" method="post">
-        <label for="callsign">Controller Callsign:</label>
-        <input type="text" id="callsign" name="callsign" oninput="this.value = this.value.toUpperCase()" required><br>
-
-        <label for="frequency">Frequency:</label>
-        <input type="text" id="frequency" name="frequency" required><br>
-
-        <button type="submit">Login</button>
+        <h1>Controller Login</h1>
+        <div class="input-box">
+        <input type="text" placeholder="Controller Callsign" id="callsign" name="callsign" oninput="this.value = this.value.toUpperCase()" required><br>
+        <i class='bx bx-hash' ></i>
+        </div>
+        <div class="input-box">
+        <input type="text" placeholder="Frequency" id="frequency" name="frequency" required><br>
+        <i class='bx bxs-radio' ></i>
+        </div>
+        <button type="submit" class="btn">Logon</button>
+        <br>
+        <br>
+        <a href="https://transponderserver.onrender.com/">
+        <button type="button" class="btn">Back</button>
+        </a>
     </form>
+</div>
 </body>
 </html>
