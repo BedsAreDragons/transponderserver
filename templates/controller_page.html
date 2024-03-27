@@ -75,29 +75,40 @@
       
         <script>
             // Function to generate a random SSR code within the specified ranges
-            function generateRandomSSR() {
-                var ranges = [
-                    [300, 777],
-                    [1001, 1077],
-                    [1101, 1177],
-                    [1201, 1777],
-                    [3001, 3777],
-                    [4001, 4777],
-                    [5001, 5777],
-                    [6001, 6777]
-                ];
+            // Function to generate a random SSR code within the specified ranges
+function generateRandomSSR() {
+    var ranges = [
+        [300, 777],
+        [1001, 1077],
+        [1101, 1177],
+        [1201, 1777],
+        [3001, 3777],
+        [4001, 4777],
+        [5001, 5777],
+        [6001, 6777]
+    ];
 
-                // Randomly select a range
-                var rangeIndex = Math.floor(Math.random() * ranges.length);
-                var min = ranges[rangeIndex][0];
-                var max = ranges[rangeIndex][1];
+    // Keep generating SSR codes until one is found that doesn't contain 8 or 9
+    while (true) {
+        // Randomly select a range
+        var rangeIndex = Math.floor(Math.random() * ranges.length);
+        var min = ranges[rangeIndex][0];
+        var max = ranges[rangeIndex][1];
 
-                // Generate a random number within the selected range
-                var randomSSR = Math.floor(Math.random() * (max - min + 1)) + min;
+        // Generate a random number within the selected range
+        var randomSSR = Math.floor(Math.random() * (max - min + 1)) + min;
 
-                // Alert or use the SSR as needed (e.g., send it to a server)
-                alert("Random SSR: " + randomSSR);
-            }
+        // Check if the SSR code contains 8 or 9
+        if (!/[89]/.test(randomSSR.toString())) {
+            // SSR code doesn't contain 8 or 9, break the loop
+            break;
+        }
+    }
+
+    // Alert or use the SSR as needed (e.g., send it to a server)
+    alert("Random SSR: " + randomSSR);
+}
+
 
             // Reload the page every 10 seconds
             setTimeout(function () {
