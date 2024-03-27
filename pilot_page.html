@@ -25,6 +25,11 @@
 
           <button type="submit">Update</button>
       </form>
+    <form action="/disconnect" method="post">
+        <input type="hidden" name="callsign" value="{{ callsign }}">
+        <button type="submit">Disconnect</button>
+    </form>
+
 
   <script>
       // Function to set a cookie
