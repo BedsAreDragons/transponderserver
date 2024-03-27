@@ -58,6 +58,40 @@
             {% endfor %}
         </ul>
         <br>
+        <!-- Add dropdown menus for selecting runways and SIDs -->
+        <label for="runway">Select Runway:</label>
+        <select id="runway" name="runway" onchange="populateSIDs()">
+            <option value="" disabled selected>Select Runway</option>
+            {% if callsign == "EGKK" %}
+            <option value="26L">26L</option>
+            <option value="08R">08R</option>
+            {% elseif callsign == "GCLP" %}
+            <option value="21L">21L</option>
+            <option value="21R">21R</option>
+            <option value="03R">03R</option>
+            <option value="03L">03L</option>
+            {% elseif callsign == "GVBA" %}
+            <option value="03">03</option>
+            <option value="21">21</option>
+            {% elseif callsign == "LYTV" %}
+            <option value="32">32</option>
+            <option value="14">14</option>
+            {% elseif callsign == "EFKT" %}
+            <option value="34">34</option>
+            <option value="16">16</option>
+            {% endif %}
+        </select>
+        
+        <label for="sid">Select SID:</label>
+        <select id="sid" name="sid">
+            <option value="" disabled selected>Select SID</option>
+            <!-- Placeholders for SIDs -->
+            <option value="SID1">SID1</option>
+            <option value="SID2">SID2</option>
+            <option value="SID3">SID3</option>
+            <option value="SID4">SID4</option>
+        </select>
+        
         <!-- Add the "Request SSR" button -->
         <button type="button" class="btn" onclick="generateRandomSSR()">Request SSR</button>
         <br><br>
@@ -73,46 +107,39 @@
       
         <script>
             // Function to generate a random SSR code within the specified ranges
-            // Function to generate a random SSR code within the specified ranges
-function generateRandomSSR() {
-    var ranges = [
-        [0300, 0777],
-        [1001, 1077],
-        [1101, 1177],
-        [1201, 1777],
-        [3001, 3777],
-        [4001, 4777],
-        [5001, 5777],
-        [6001, 6777]
-    ];
+            function generateRandomSSR() {
+                var ranges = [
+                    [0300, 0777],
+                    [1001, 1077],
+                    [1101, 1177],
+                    [1201, 1777],
+                    [3001, 3777],
+                    [4001, 4777],
+                    [5001, 5777],
+                    [6001, 6777]
+                ];
 
-    // Keep generating SSR codes until one is found that doesn't contain 8 or 9
-    while (true) {
-        // Randomly select a range
-        var rangeIndex = Math.floor(Math.random() * ranges.length);
-        var min = ranges[rangeIndex][0];
-        var max = ranges[rangeIndex][1];
+                // Keep generating SSR codes until one is found that doesn't contain 8 or 9
+                while (true) {
+                    // Randomly select a range
+                    var rangeIndex = Math.floor(Math.random() * ranges.length);
+                    var min = ranges[rangeIndex][0];
+                    var max = ranges[rangeIndex][1];
 
-        // Generate a random number within the selected range
-        var randomSSR = Math.floor(Math.random() * (max - min + 1)) + min;
+                    // Generate a random number within the selected range
+                    var randomSSR = Math.floor(Math.random() * (max - min + 1)) + min;
 
-        // Check if the SSR code contains 8 or 9
-        if (!/[89]/.test(randomSSR.toString())) {
-            // SSR code doesn't contain 8 or 9, break the loop
-            break;
-        }
-    }
+                    // Check if the SSR code contains 8 or 9
+                    if (!/[89]/.test(randomSSR.toString())) {
+                        // SSR code doesn't contain 8 or 9, break the loop
+                        break;
+                    }
+                }
 
-    // Alert or use the SSR as needed (e.g., send it to a server)
-    alert("Random SSR: " + randomSSR);
-}
+                // Alert or use the SSR as needed (e.g., send it to a server)
+                alert("Random SSR: " + randomSSR);
+            }
 
-
-            // Reload the page every 10 seconds
-            setTimeout(function () {
-                location.reload();
-            }, 17000);
-        </script>
-    </div>
-</body>
-</html>
+            // Function to populate the SIDs dropdown based on the selected runway
+            function populateSIDs() {
+                var runway = document.getElementById("runway
