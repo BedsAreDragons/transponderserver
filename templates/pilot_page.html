@@ -25,10 +25,10 @@
       <!-- Inside your pilot_page.html -->
       <form action="{{ url_for('pilot_page', callsign=callsign) }}" method="post">
         <div class="input-box">
-        <input type="text" placeholder="Gate" id="gate" name="gate" value="{{ pilot.gate or 'Unassigned' }}"><br>
+        <input type="text" placeholder="Gate" id="gate" name="gate" value="{{ pilot.gate }}"><br>
         </div>
         <div class="input-box">
-        <input type="text" placeholder="Frequency" id="frequency" name="frequency" value="{{ pilot.frequency }}" required><br>
+        <input type="text" placeholder="Frequency" id="frequency" name="frequency" value="{{ pilot.frequency }}" ><br>
         </div>
         <div class="input-box">
         <input type="number" min="0000" max="7777" placeholder="Squawk" id="squawk" name="squawk" value="{{ pilot.squawk }}"><br>
