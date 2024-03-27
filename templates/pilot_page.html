@@ -36,8 +36,10 @@
           <button type="submit" class="btn">Update</button>
           <br>
           <br>
-          <a href="https://transponderserver.onrender.com/">
-          <button type="button" class="btn">Exit</button>
+          <form action="/disconnect" method="post">
+                <input type="hidden" name="callsign" value="{{ callsign }}">
+                <button type="submit">Disconnect</button>
+            </form>
           </a>
       </form>
     </div>
@@ -79,10 +81,7 @@
         <br>
         <button type="button" class=btn>GVBA</button>
     </div>        
-    <form action="/disconnect" method="post">
-        <input type="hidden" name="callsign" value="{{ callsign }}">
-        <button type="submit">Disconnect</button>
-    </form>
+    
 
   <script>
       // Function to set a cookie
