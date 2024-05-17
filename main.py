@@ -28,9 +28,7 @@ def disconnect():
     if callsign in pilots:
         del pilots[callsign]
         print(f"{Fore.GREEN}Pilot {callsign} disconnected and removed from ATC side{Fore.WHITE}")
-        return jsonify({'message': 'Disconnected and removed from ATC side'})
-    else:
-        return jsonify({'message': 'Pilot not found'})
+        return render_template('index.html')
 
 
 @app.route('/admin', methods=['GET', 'POST'])
