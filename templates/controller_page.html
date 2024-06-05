@@ -32,7 +32,7 @@
             {% for pilot in pilots %}
                 <li class="{% if '7700' in pilots[pilot].squawk or '7600' in pilots[pilot].squawk or '7500' in pilots[pilot].squawk %}squawk-alert{% else %}{% if pilots[pilot].frequency == callsign %}pilot-on-frequency{% else %}pilot-on-other-frequency{% endif %}{% endif %}">
                     <strong>Callsign:</strong> <span class="{% if '7700' in pilots[pilot].squawk or '7600' in pilots[pilot].squawk or '7500' in pilots[pilot].squawk %}squawk-alert{% else %}{% if pilots[pilot].frequency == callsign %}pilot-on-frequency{% else %}pilot-on-other-frequency{% endif %}{% endif %}">{{ pilot }}</span> | 
-                    <strong>Frequency:</strong> {{ pilots[pilot].frequency }} | 
+                    <strong>Route:</strong> {{ pilots[pilot].frequency }} | 
                     <strong>Squawk:</strong> <span class="{% if '7700' in pilots[pilot].squawk or '7600' in pilots[pilot].squawk or '7500' in pilots[pilot].squawk %}squawk-alert{% endif %}">{{ pilots[pilot].squawk }}</span>
                     
                 </li>
